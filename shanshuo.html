@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		html{
+			height: 100%;
+		}
+		img{
+			background: #fff;
+			position: absolute;
+			width: 0px;
+			height: 0px;
+		}
+	</style>
+</head>
+<body style="height: 100%;background: #000;">
+	<img src="http://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F9f4f3b4cc1eb73363f94b248d6a75c38" id="img">
+	<script type="text/javascript">
+		var imgs = new Array(),
+			_height = document.getElementsByTagName("body")[0].offsetHeight;
+
+		for(var i=0; i<100; i++) {
+			var img = document.getElementById("img");
+			var _img = img.cloneNode(true);
+			_img.style.width = Math.floor(Math.random() * 12 + 25) + "px";
+			_img.style.height = _img.style.width;
+			_img.style.left = (Math.floor(Math.random() * 1200)) + "px";
+			_img.style.top = (Math.floor(Math.random() * _height)) + "px";
+			document.body.appendChild(_img);
+			imgs.push(_img);
+		}
+		var t = setInterval(function() {
+			if (imgs.length < 180) {
+				var img = document.getElementById("img");
+				var _img = img.cloneNode(true);
+				_img.style.width = Math.floor(Math.random() * 12 + 25) + "px";
+				_img.style.height = _img.style.width;
+				_img.style.left = (Math.floor(Math.random() * 1200)) + "px";
+				_img.style.top = (Math.floor(Math.random() * 850)) + "px";
+				document.body.appendChild(_img);
+				imgs.push(_img);
+				if (imgs.length>180) {}{
+					imgs.shift();
+					imgs[0].parentNode.removeChild(imgs[0]);
+				}
+			}
+		}, 30)
+
+	</script>
+</body>
+</html>
